@@ -19,7 +19,11 @@ Send a POST request to **localhost:8000/predict** with a JSON in the body of the
    
    Response:
 
-    {"prediction": "1"}
+    {"code": 200,
+    "status": "success",
+    "data": {
+        "prediction": "1"}
+    }
 
 "1" represents Fraud. A postman collection is included which can be imported and made easy to consult.
 

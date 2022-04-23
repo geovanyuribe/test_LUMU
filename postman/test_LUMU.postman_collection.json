@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "611f1ce8-5973-47eb-8708-7f6bfb2979ad",
+		"name": "test_LUMU",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "test_LOCAL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\"{'fecha_dia_de_la_semana':6, 'dcto':0.0, 'fecha_hora':3, 'dispositivo_os':'ANDROID', 'ID_USER':5}\""
+				},
+				"url": {
+					"raw": "http://localhost:8080/predict",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"predict"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_CLOUD",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\"{'fecha_dia_de_la_semana':6, 'dcto':0.0, 'fecha_hora':3, 'dispositivo_os':'ANDROID', 'ID_USER':5}\""
+				},
+				"url": {
+					"raw": "http://localhost:8080/predict",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"predict"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

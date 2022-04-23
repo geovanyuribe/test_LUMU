@@ -38,12 +38,14 @@
 					"raw": "\"{'fecha_dia_de_la_semana':6, 'dcto':0.0, 'fecha_hora':3, 'dispositivo_os':'ANDROID', 'ID_USER':5}\""
 				},
 				"url": {
-					"raw": "http://localhost:8080/predict",
-					"protocol": "http",
+					"raw": "https://test-lumu-ia7m4ghnua-uc.a.run.app/predict",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"test-lumu-ia7m4ghnua-uc",
+						"a",
+						"run",
+						"app"
 					],
-					"port": "8080",
 					"path": [
 						"predict"
 					]

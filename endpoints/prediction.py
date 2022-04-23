@@ -10,10 +10,10 @@ router = APIRouter()
 async def prediction(request: Request):
     """Returns fraud prediction."""
 
-    new_request = await request.json()
+    new_request_original = await request.json()
 
     try:
-        new_request = eval(new_request)
+        new_request = eval(new_request_original)
 
         model = joblib.load("models/model.joblib")
         dummies_columns = joblib.load("models/dummies_columns.joblib")
@@ -35,6 +35,6 @@ async def prediction(request: Request):
 
         return ResponseModel({"prediction":str(prediction[0])}, "success")
     except Exception:
-        return ErrorResponseModel(503, {"INVALID REQUEST": new_request,
+        return ErrorResponseModel(503, {"INVALID REQUEST": new_request_original,
         "TRY WITH A VALID REQUEST LIKE": "{'fecha_dia_de_la_semana':6, 'dcto':0.0, 'fecha_hora':3, 'dispositivo_os':'ANDROID', 'ID_USER':5}",
         "NOTE:":"The variables are fecha_dia_de_la_semana, dcto, fecha_hora, dispositivo_os and ID_USER (capital letter). All the variables should have values."})

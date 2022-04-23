@@ -3,8 +3,8 @@
 There are three ways to test the API:
 
 1. **Cloud**: Testing the endoint deployed on GCP (*Google Cloud Run* especifically).
-2. **Local**: Installing the requirements and running Uvicorn.
-3. **Local**: Building the Docker image and running it on local.
+2. **Local**: Building the Docker image and running it on local.
+3. **Local**: Installing the requirements and running Uvicorn.
 
 &nbsp;
 
@@ -25,18 +25,18 @@ Inside the **folder called postman** is the **collection called test_LUMU.postma
 
 &nbsp;
 
-# **1.2.** Testing in **Local** (Uvicorn) : #
+# **1.2.** Testing in **Local** (Docker) : #
 
-For this method you need to have **Python 3.7** or higher installed.
+For this method you need to have **Docker 20.10.12** installed.
 
 \
-**1.2.1. Install the requirements:**
+**1.2.1. Create the Docker image:**
 
-    pip install -r requirements.txt
+    docker build -t test-lumu .
 \
-**1.2.2. Run the server in local:**
+**1.2.2. Run the image in local:**
 
-    uvicorn main:app --port 8080 --reload
+    docker run -p 8080:8080 test-lumu
 \
 **1.2.3. To make predictions:**
 Send a POST request to **http://localhost:8080/predict** with a JSON in the body of the style:
@@ -54,18 +54,18 @@ Inside the **folder called postman** is the **collection called test_LUMU.postma
 
 &nbsp;
 
-# **1.3.** Testing in **Local** (Docker) : #
+# **1.3.** Testing in **Local** (Uvicorn) : #
 
-For this method you need to have **Docker 20.10.12** installed.
+For this method you need to have **Python 3.7** or higher installed.
 
 \
-**1.3.1. Create the Docker image:**
+**1.3.1. Install the requirements:**
 
-    docker build -t test-lumu .
+    pip install -r requirements.txt
 \
-**1.3.2. Run the image in local:**
+**1.3.2. Run the server in local:**
 
-    docker run -p 8080:8080 test-lumu
+    uvicorn main:app --port 8080 --reload
 \
 **1.3.3. To make predictions:**
 Send a POST request to **http://localhost:8080/predict** with a JSON in the body of the style:
